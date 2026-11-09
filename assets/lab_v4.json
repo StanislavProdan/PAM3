@@ -1,0 +1,37 @@
+{
+  "homePage": {
+    "header": {
+      "greeting": "Hi, Kristin",
+      "subtitle": "Let's start learning",
+      "avatarUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80",
+      "notification": {"hasUnread": true}
+    },
+    "learnedToday": {"title": "Learned today", "learnedMinutes": 46, "goalMinutes": 60, "formatted": "46min / 60min", "progress": 0.7667},
+    "myCourses": {"title": "My courses", "actionLabel": "My courses"},
+    "learningPrompt": {"title": "What do you want to learn today?", "actionLabel": "Get Started", "imageUrl": "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=85"},
+    "learningPlan": {
+      "title": "Learning Plan",
+      "items": [
+        {"id": "packaging-design", "title": "Packaging Design", "completed": 40, "total": 48, "progress": 0.8333},
+        {"id": "product-design", "title": "Product Design", "completed": 6, "total": 24, "progress": 0.25}
+      ]
+    },
+    "meetup": {"title": "Meetup", "subtitle": "Off-line exchange of learning experience", "imageUrl": "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=85"}
+  },
+  "courseOverviewPage": {
+    "navigation": {"title": "Course Overview"},
+    "course": {
+      "id": "react-front-to-back", "title": "React Front To back", "duration": "6h 30min", "durationMinutes": 390, "lessonCount": 7, "rating": 4.9,
+      "hero": {"label": "SPOKEN ENGLISH", "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1000&q=85", "videoCount": 75, "classCount": 35},
+      "tabs": {"selected": "lessons", "items": [{"id": "lessons", "label": "Lessons", "selected": true}, {"id": "description", "label": "Description", "selected": false}]},
+      "lessons": [
+        {"id": "lesson-1", "title": "Introduction to React", "duration": "04:28", "durationSeconds": 268, "completed": false, "locked": false},
+        {"id": "lesson-2", "title": "Understanding React", "duration": "06:12", "durationSeconds": 372, "completed": false, "locked": false},
+        {"id": "lesson-3", "title": "Create first React project", "duration": "43:58", "durationSeconds": 2638, "completed": false, "locked": false},
+        {"id": "lesson-4", "title": "Build React", "duration": "26:18", "durationSeconds": 1578, "completed": false, "locked": true}
+      ],
+      "description": {"text": "Build a practical React foundation through short, focused lessons."}
+    },
+    "actions": {"price": {"label": "Free", "amount": 0, "currency": "USD"}, "enroll": {"label": "Enroll Now", "enabled": true}}
+  }
+}
