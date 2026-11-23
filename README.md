@@ -1,13 +1,13 @@
-# Learnly - Laborator nr. 3
+# PAM4 - Laborator nr. 4
 
-Aplicație Flutter pentru gestionarea unei platforme de învățare. Proiectul demonstrează state management cu BLoC/Cubit, programare asincronă, încărcarea datelor din JSON, arhitectură modulară și componente UI reutilizabile.
+Aplicație Flutter pentru gestionarea unei platforme de învățare. Proiectul demonstrează state management cu BLoC/Cubit, programare asincronă, integrare REST API, serializare JSON, arhitectură Clean și componente UI reutilizabile.
 
 ## Cerințe implementate
 
 | Cerință | Implementare |
 |---|---|
-| Încărcare asincronă a datelor | `CourseRepository.loadCourse()` în [`lib/data/course_repository.dart`](lib/data/course_repository.dart) |
-| Date stocate într-un fișier JSON inclus în proiect | [`assets/lab_v4.json`](assets/lab_v4.json), declarat în `pubspec.yaml` |
+| Încărcare asincronă a datelor | `CourseRepository.loadCourse()` în [`lib/data/course_repository.dart`](lib/data/course_repository.dart), cu apeluri paralele |
+| Integrare REST API | [`ApiClient`](lib/data/api_client.dart) apelează endpointurile `/feed` și `/feed/details` |
 | State management cu BLoC/Cubit | [`CourseCubit`](lib/logic/course_cubit.dart) și `BlocProvider` în [`lib/main.dart`](lib/main.dart) |
 | Stare Loading | `CourseStatus.loading` în [`CourseCubit.load()`](lib/logic/course_cubit.dart) și indicatorul din [`HomePage`](lib/presentation/home_page.dart) |
 | Stare Success | `CourseStatus.success` și afișarea dashboard-ului în [`HomePage`](lib/presentation/home_page.dart) |
@@ -32,6 +32,7 @@ Aplicație Flutter pentru gestionarea unei platforme de învățare. Proiectul d
 ```text
 lib/
 ├── data/
+│   ├── api_client.dart
 │   └── course_repository.dart
 ├── logic/
 │   └── course_cubit.dart
@@ -44,14 +45,11 @@ lib/
 │       ├── remote_image.dart
 │       └── section_title.dart
 └── main.dart
-assets/
-└── lab_v4.json
 ```
 
 ## Rulare
 
 ```powershell
-cd C:\Users\dprod\Desktop\PAM3
 flutter pub get
 flutter run
 ```

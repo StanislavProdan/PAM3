@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../logic/course_cubit.dart';
+import '../models/course_models.dart';
 import 'course_page.dart';
 import 'widgets/remote_image.dart';
 import 'widgets/section_title.dart';
@@ -43,9 +44,13 @@ class HomePage extends StatelessWidget {
                         const SizedBox(height: 28),
                         _LearningProgress(home: home),
                         const SizedBox(height: 30),
-                        SectionTitle(title: 'My courses', action: 'View all'),
+                        SectionTitle(
+                          title: home.coursesTitle,
+                          action: home.coursesAction,
+                        ),
                         const SizedBox(height: 14),
                         _CourseCard(
+                          course: state.data!.course,
                           onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -64,9 +69,17 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 18),
-                        _PromptCard(imageUrl: home.promptImage),
+                        _PromptCard(
+                          title: home.promptTitle,
+                          action: home.promptAction,
+                          imageUrl: home.promptImage,
+                        ),
                         const SizedBox(height: 18),
-                        _MeetupCard(imageUrl: home.meetupImage),
+                        _MeetupCard(
+                          title: home.meetupTitle,
+                          subtitle: home.meetupSubtitle,
+                          imageUrl: home.meetupImage,
+                        ),
                       ],
                     ),
                   ),
@@ -192,7 +205,8 @@ class _LearningProgress extends StatelessWidget {
 }
 
 class _CourseCard extends StatelessWidget {
-  const _CourseCard({required this.onTap});
+  const _CourseCard({required this.course, required this.onTap});
+  final Course course;
   final VoidCallback onTap;
   @override
   Widget build(BuildContext context) => InkWell(
@@ -212,20 +226,20 @@ class _CourseCard extends StatelessWidget {
               child: Opacity(
                 opacity: .55,
                 child: RemoteImage(
-                  url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80',
+                  url: course.imageUrl,
                   radius: 20,
                 ),
               ),
             ),
           ),
-          const Positioned(
+          Positioned(
             left: 20,
             bottom: 20,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'React Front To back',
+                  course.title,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 22,
@@ -234,7 +248,7 @@ class _CourseCard extends StatelessWidget {
                 ),
                 SizedBox(height: 6),
                 Text(
-                  '6h 30min  •  7 lessons',
+                  '${course.duration}  •  ${course.lessonCount} lessons',
                   style: TextStyle(color: Colors.white70),
                 ),
               ],
@@ -283,8 +297,12 @@ class _PlanTile extends StatelessWidget {
 }
 
 class _PromptCard extends StatelessWidget {
-  const _PromptCard({required this.imageUrl});
-  final String imageUrl;
+  const _PromptCard({
+    required this.title,
+    required this.action,
+    required this.imageUrl,
+  });
+  final String title, action, imageUrl;
   @override
   Widget build(BuildContext context) => SizedBox(
     height: 150,
@@ -299,11 +317,11 @@ class _PromptCard extends StatelessWidget {
             ),
           ),
         ),
-        const Positioned(
+        Positioned(
           left: 20,
           top: 24,
           child: Text(
-            'What do you want to\\nlearn today?',
+            title,
             style: TextStyle(
               color: Colors.white,
               fontSize: 21,
@@ -316,7 +334,7 @@ class _PromptCard extends StatelessWidget {
           bottom: 18,
           child: FilledButton(
             onPressed: () {},
-            child: const Text('Get Started'),
+            child: Text(action),
           ),
         ),
       ],
@@ -325,8 +343,12 @@ class _PromptCard extends StatelessWidget {
 }
 
 class _MeetupCard extends StatelessWidget {
-  const _MeetupCard({required this.imageUrl});
-  final String imageUrl;
+  const _MeetupCard({
+    required this.title,
+    required this.subtitle,
+    required this.imageUrl,
+  });
+  final String title, subtitle, imageUrl;
   @override
   Widget build(BuildContext context) => Container(
     padding: const EdgeInsets.all(12),
@@ -338,17 +360,17 @@ class _MeetupCard extends StatelessWidget {
       children: [
         RemoteImage(url: imageUrl, width: 110, height: 80, radius: 14),
         const SizedBox(width: 14),
-        const Expanded(
+        Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Meetup',
+                title,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 5),
               Text(
-                'Off-line exchange of learning experience',
+                subtitle,
                 style: TextStyle(color: Colors.grey),
               ),
             ],

@@ -20,7 +20,7 @@ class LearningApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: 'Learnly',
+    title: 'PAM4',
     theme: ThemeData(
       colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFFF6F00)),
       scaffoldBackgroundColor: const Color(0xFFF9F9FA),

@@ -60,7 +60,7 @@ class _CoursePageState extends State<CoursePage> {
                 left: 18,
                 bottom: 18,
                 child: Text(
-                  'SPOKEN ENGLISH',
+                  course.heroLabel,
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -248,7 +248,7 @@ class _CoursePageState extends State<CoursePage> {
               onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Te-ai înscris la curs!')),
               ),
-              child: const Text('Enroll Now'),
+              child: Text(course.enrollLabel),
             ),
           ),
         ],

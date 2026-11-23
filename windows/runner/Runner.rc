@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "pam3" "\0"
+            VALUE "FileDescription", "PAM4" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "pam3" "\0"
+            VALUE "InternalName", "PAM4" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2026 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "pam3.exe" "\0"
-            VALUE "ProductName", "pam3" "\0"
+            VALUE "OriginalFilename", "pam4.exe" "\0"
+            VALUE "ProductName", "PAM4" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
